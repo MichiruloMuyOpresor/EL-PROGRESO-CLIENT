@@ -2,10 +2,8 @@
 *.bak
 
 #folders
-worldshape/
 assets/
 backup/
-defaultconfigs/
 libraries/
 logs/
 paintings/
