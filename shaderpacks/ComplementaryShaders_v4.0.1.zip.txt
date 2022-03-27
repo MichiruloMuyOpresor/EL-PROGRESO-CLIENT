@@ -1,0 +1,6 @@
+#Sat Mar 26 18:55:02 CET 2022
+COMPATIBILITY_MODE=true
+REFLECTION_SPECULAR=false
+shadowDistance=128.0
+shadowMapResolution=1024
+SHADOWS=false
