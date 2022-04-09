@@ -4,7 +4,7 @@
     "weather_quality": "FAST",
     "leaves_quality": "FAST",
     "enable_vignette": true,
-    "enable_clouds": true,
+    "enable_clouds": false,
     "smooth_lighting": "LOW"
   },
   "advanced": {

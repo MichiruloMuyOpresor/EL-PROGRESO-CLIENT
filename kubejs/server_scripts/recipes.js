@@ -113,7 +113,13 @@ onEvent('item.tags', event => {
 	event.get("forge:tools/axes").add(TC("hand_axe"))
 	event.get("forge:vines").add(MC("vine")).add(BOP("willow_vine")).add(BOP("spanish_moss"))
 	event.get("forge:recycling")
-		
+		.add("extcaves:rusty_pickaxe")
+		.add("extcaves:rusty_sword")
+		.add("extcaves:iron_dagger")
+		.add("extcaves:gourmet_spoon")
+		.add("extcaves:gourmet_fork")
+		.add("extcaves:chef_knife")
+		.add("extcaves:butcher_knife")
 
 	event.get("forge:circuit_press")
 		.add(AE2("name_press"))
@@ -178,8 +184,6 @@ onEvent('item.tags', event => {
 		.add("forbidden_arcanus:arcane_dark_stone")
 		.add("#forge:dusts")
 		.add("cb_microblock:microblock")
-		.add("culinaryconstruct:sandwich")
-		.add("culinaryconstruct:food_bowl")
 		.add("patchouli:guide_book")
 		.add("randomium:randomium")
 		.add("portality:generator")
@@ -195,6 +199,8 @@ onEvent('item.tags', event => {
 
 	event.get('tconstruct:anvil_metal').add(CR('zinc_block'))
 
+	event.get('chisel:basalt').add('extcaves:lavastone').add('extcaves:polished_lavastone')
+	event.get('chisel:limestone').add('extcaves:sedimentstone').add('darkerdepths:limestone').add('darkerdepths:aridrock')
 
 	let stones = ["limestone", "dolomite"]
 	stones.forEach(e => {
@@ -377,6 +383,9 @@ function unwantedRecipes(event) {
 	event.remove({ id: MC('andesite') })
 	event.remove({ id: MC('granite') })
 	event.remove({ id: CR('mixing/brass_ingot') })
+	event.remove({ id: 'thermal:compat/biomesoplenty/tree_extractor_bop_pink_cherry' })
+	event.remove({ id: 'thermal:compat/biomesoplenty/tree_extractor_bop_white_cherry' })
+	event.remove({ id: 'thermal:compat/biomesoplenty/tree_extractor_bop_fir' })
 	event.remove({ id: TC('smeltery/melting/metal/gold/enchanted_apple') })
 	event.remove({ id: CR('cutting/andesite_alloy') })
 	event.remove({ id: TE('storage/beetroot_block') })
@@ -571,6 +580,8 @@ function tweaks(event) {
 	event.replaceInput({ id: "architects_palette:wither_lamp" }, AP('withered_bone'), TC('necrotic_bone'))
 	event.replaceInput({ id: "architects_palette:withered_bone_block" }, AP('withered_bone'), TC('necrotic_bone'))
 	event.remove({ id: "architects_palette:withered_bone" })
+
+	event.remove({ id: "extcaves:pebble_stone" })
 
 	event.remove({ id: "forbidden_arcanus:edelwood_stick" })
 	event.shaped("3x forbidden_arcanus:edelwood_stick", [
@@ -1212,6 +1223,9 @@ function unify(event) {
 	event.replaceInput({}, '#forge:gems/sapphire', TE('sapphire'))
 	event.replaceInput({ id: "exchangers:thermal/thermal_exchanger_core_tier1" }, TE('ender_pearl_dust'), AE2('ender_dust'))
 
+	event.recipes.createSplashing([Item.of(MC('clay_ball'), 1).withChance(0.25).toResultJson()], 'biomesoplenty:black_sand')
+	event.recipes.createSplashing([Item.of(MC('clay_ball'), 1).withChance(0.25).toResultJson()], 'biomesoplenty:white_sand')
+	event.recipes.createSplashing([Item.of(MC('clay_ball'), 1).withChance(0.25).toResultJson()], 'biomesoplenty:orange_sand')
 
 	event.replaceInput({ type: "minecraft:crafting_shaped" }, '#forge:ingots/tin', CR('zinc_ingot'))
 
@@ -1282,6 +1296,7 @@ function rubberMatters(event) {
 	overrideTreeOutput(TE('devices/tree_extractor/tree_extractor_jungle'), MC('jungle_log'), MC('jungle_leaves'))
 	overrideTreeOutput(TE('devices/tree_extractor/tree_extractor_spruce'), MC('spruce_log'), MC('spruce_leaves'))
 	overrideTreeOutput(TE('devices/tree_extractor/tree_extractor_dark_oak'), MC('dark_oak_log'), MC('dark_oak_leaves'))
+	overrideTreeOutput(TE('compat/biomesoplenty/tree_extractor_bop_maple'), MC('oak_log'), 'biomesoplenty:maple_leaves')
 
 	event.remove({ id: CR('crafting/kinetics/belt_connector') })
 	event.shaped(CR('belt_connector', 3), [
