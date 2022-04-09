@@ -143,7 +143,7 @@
 		#
 		#Stalactite Spawn Rate (default=10)
 		#Range: 1 ~ 50
-		spawnrate_rock_stalactites = 10
+		spawnrate_rock_stalactites = 4
 
 	[Spawn_Rates.Structures]
 		#
